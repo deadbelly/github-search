@@ -7,12 +7,10 @@ import { SearchResults } from '../SearchResults/SearchResults'
 //styles
 import './App.css';
 
-const App = () => {
+export const App = () => {
   return (
     <div className="App">
       PLACEHOLDER
     </div>
-  );
+  )
 }
-
-export default App;
