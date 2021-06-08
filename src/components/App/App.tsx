@@ -9,7 +9,7 @@ import { SearchResults } from '../SearchResults/SearchResults'
 //styles
 import './App.css'
 
-interface Repo {
+export interface Repo {
   id: number,
   name: string,
   fullName: string,
@@ -48,14 +48,22 @@ interface Repo {
   licenseUrl?: string,
 }
 
+export interface Filters {
+  language: string | null,
+}
+
 export const App: React.FC = () => {
   const [allResults, setAllResults] = useState<Array<Repo>>([])
-  const [filters, setFilters] = useState({})
+  const [filters, setFilters] = useState<Filters>({language: null})
   const [selection, setSelection] = useState<Repo | null>(null)
 
   return (
     <div className="App">
-      PLACEHOLDER
+      <SearchBar
+        setAllResults={setAllResults}
+        setFilters={setFilters}
+        setSelection={setSelection}
+      />
     </div>
   )
 }
