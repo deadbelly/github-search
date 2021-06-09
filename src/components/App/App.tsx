@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Route } from 'react-router-dom'
+import { RouteComponentProps } from 'react-router'
 
 //components
 import { RepoDetails } from '../RepoDetails/RepoDetails'
@@ -44,6 +46,11 @@ export interface Filters {
   language: string,
 }
 
+interface Match {
+  ownerName: string
+  name: string
+}
+
 export const App: React.FC = () => {
   const [allResults, setAllResults] = useState<Array<Repo>>([])
   const [filters, setFilters] = useState<Filters>({language: ''})
@@ -52,15 +59,32 @@ export const App: React.FC = () => {
 
   return (
     <div className="App">
-      <SearchBar
-        setAllResults={setAllResults}
-        setFilters={setFilters}
-        filters={filters}
-        allResults={allResults}
+      <Route
+        exact path='/'
+        render={(): any =>
+          <>
+            <SearchBar
+            setAllResults={setAllResults}
+            setFilters={setFilters}
+            filters={filters}
+            allResults={allResults}
+            />
+            <SearchResults
+            allResults={allResults}
+            filters={filters}
+            />
+        </>
+        }
       />
-      <SearchResults
-        allResults={allResults}
-        filters={filters}
+      <Route
+        exact path='/details/:ownerName/:name'
+        render={({ match }: RouteComponentProps<Match>) =>
+          <RepoDetails
+            ownerName={match.params.ownerName}
+            name={match.params.name}
+            allResults={allResults}
+          />
+        }
       />
     </div>
   )
