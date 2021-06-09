@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 //components
-import { RepoCard } from '../RepoCard/RepoCard'
 import { RepoDetails } from '../RepoDetails/RepoDetails'
 import { SearchBar } from '../SearchBar/SearchBar'
 import { SearchResults } from '../SearchResults/SearchResults'
@@ -10,6 +9,7 @@ import { SearchResults } from '../SearchResults/SearchResults'
 import './App.css'
 
 export interface Repo {
+  [key: string]: any
   id: number,
   name: string,
   fullName: string,
@@ -40,6 +40,7 @@ export interface Repo {
 }
 
 export interface Filters {
+  [key: string]: any
   language: string,
 }
 
@@ -56,6 +57,10 @@ export const App: React.FC = () => {
         setFilters={setFilters}
         filters={filters}
         allResults={allResults}
+      />
+      <SearchResults
+        allResults={allResults}
+        filters={filters}
       />
     </div>
   )
