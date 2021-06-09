@@ -13,7 +13,7 @@ export const useFilters = (
   useEffect(() => {
     let filteredResults = allResults
     for (const key in filters) {
-      if (filters[key] !== '') {
+      if (filters[key]) {
         filteredResults = filterResults(filteredResults, key, filters[key])
       }
     }
