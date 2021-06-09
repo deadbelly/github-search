@@ -1,7 +1,9 @@
 import { Repo } from './components/App/App'
 import { cleanRepoData } from './dataCleaning'
 
-const authHeader = { headers: { authorization: `token ${process.env.REACT_APP_GH_KEY}` } }
+const authHeader = {
+  headers: { authorization: `token ${process.env.REACT_APP_GH_KEY}` }
+}
 
 const checkResponse = (response: any): any => {
   if (response.ok) {
@@ -11,8 +13,8 @@ const checkResponse = (response: any): any => {
   }
 }
 
-export const getRepos = (query: string): Promise<Repo[]> => {
-  return fetch(`https://api.github.com/search/repositories?q=${query}`, authHeader)
+export const getRepos = (query: string, sort: string): Promise<Repo[]> => {
+  return fetch(`https://api.github.com/search/repositories?q=${query}&sort=${sort}`, authHeader)
     .then(response => checkResponse(response))
       .then(data => cleanRepoData(data))
 }

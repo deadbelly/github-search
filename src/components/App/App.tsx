@@ -54,7 +54,6 @@ export const App: React.FC = () => {
       <SearchBar
         setAllResults={setAllResults}
         setFilters={setFilters}
-        setSelection={setSelection}
       />
     </div>
   )
