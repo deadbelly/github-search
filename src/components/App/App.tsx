@@ -54,7 +54,6 @@ interface Match {
 export const App: React.FC = () => {
   const [allResults, setAllResults] = useState<Array<Repo>>([])
   const [filters, setFilters] = useState<Filters>({language: ''})
-  const [selection, setSelection] = useState<Repo | null>(null)
 
 
   return (
@@ -64,14 +63,14 @@ export const App: React.FC = () => {
         render={(): any =>
           <>
             <SearchBar
-            setAllResults={setAllResults}
-            setFilters={setFilters}
-            filters={filters}
-            allResults={allResults}
+              setAllResults={setAllResults}
+              setFilters={setFilters}
+              filters={filters}
+              allResults={allResults}
             />
             <SearchResults
-            allResults={allResults}
-            filters={filters}
+              allResults={allResults}
+              filters={filters}
             />
         </>
         }
