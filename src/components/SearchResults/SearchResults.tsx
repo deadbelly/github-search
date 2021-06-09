@@ -10,7 +10,7 @@ interface Props {
 export const SearchResults: React.FC<Props> = ({ allResults, filters }) => {
   const [filteredResults, setFilteredResults] = useState<Repo[]>([])
 
-  
+  useFilters(filters, allResults, setFilteredResults)
 
   return (
     <>
