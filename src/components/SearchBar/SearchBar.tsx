@@ -5,10 +5,12 @@ import { getRepos } from '../../apiCalls'
 interface Props {
   setAllResults: React.Dispatch<React.SetStateAction<Repo[]>>
   setFilters: React.Dispatch<React.SetStateAction<Filters>>
+  filters: Filters
+  allResults: Repo[]
 }
 
 export const SearchBar: React.FC<Props> =
-  ({ setAllResults, setFilters }) => {
+  ({ setAllResults, setFilters, filters, allResults }) => {
 
   const [query, setQuery] = useState<string>('')
   const [sort, setSort] = useState<string>('')
@@ -18,11 +20,37 @@ export const SearchBar: React.FC<Props> =
       .then((results: any) => setAllResults(results))
   }
 
+  const renderLangOptions = (): JSX.Element[] | void => {
+    const languages = allResults.reduce<Record<string, boolean>>((acc, repo) => {
+      if (!acc[repo.language]) {
+        acc[repo.language] = true
+      }
+
+      return acc
+    }, {})
+
+    return Object.keys(languages).map((language, i) => {
+      return (
+        <option value={language} key={i}>{language}</option>
+      )
+    })
+  }
+
   return (
     <div>
-      <select value={sort} onChange={e => setSort(e.target.value)}>
-        <option value="best match">Best Match</option>
-        <option value="stars">Stars</option>
+      <select
+        value={filters.language}
+        onChange={e => setFilters({ language: e.target.value })}
+      >
+        <option value=''>Any</option>
+        {renderLangOptions()}
+      </select>
+      <select
+        value={sort}
+        onChange={e => setSort(e.target.value)}
+      >
+        <option value='best match'>Best Match</option>
+        <option value='stars'>Stars</option>
       </select>
       <input
         value={query}

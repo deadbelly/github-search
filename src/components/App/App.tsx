@@ -40,12 +40,12 @@ export interface Repo {
 }
 
 export interface Filters {
-  language: string | null,
+  language: string,
 }
 
 export const App: React.FC = () => {
   const [allResults, setAllResults] = useState<Array<Repo>>([])
-  const [filters, setFilters] = useState<Filters>({language: null})
+  const [filters, setFilters] = useState<Filters>({language: ''})
   const [selection, setSelection] = useState<Repo | null>(null)
 
 
@@ -54,6 +54,8 @@ export const App: React.FC = () => {
       <SearchBar
         setAllResults={setAllResults}
         setFilters={setFilters}
+        filters={filters}
+        allResults={allResults}
       />
     </div>
   )
