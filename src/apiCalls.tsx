@@ -16,5 +16,11 @@ const checkResponse = (response: any): any => {
 export const getRepos = (query: string, sort: string): Promise<Repo[]> => {
   return fetch(`https://api.github.com/search/repositories?q=${query}&sort=${sort}`, authHeader)
     .then(response => checkResponse(response))
+      .then(data => data.items.map((repo: any) => cleanRepoData(repo)))
+}
+
+export const getSingleRepo = (ownerName: string, name: string): Promise<Repo> => {
+  return fetch(`https://api.github.com/repos/${ownerName}/${name}`, authHeader)
+    .then(response => checkResponse(response))
       .then(data => cleanRepoData(data))
 }
