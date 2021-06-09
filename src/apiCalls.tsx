@@ -1,0 +1,18 @@
+import { Repo } from './components/App/App'
+import { cleanRepoData } from './dataCleaning'
+
+const authHeader = { headers: { authorization: `token ${process.env.REACT_APP_GH_KEY}` } }
+
+const checkResponse = (response: any): any => {
+  if (response.ok) {
+    return response.json()
+  } else {
+    throw response
+  }
+}
+
+export const getRepos = (query: string): Promise<Repo[]> => {
+  return fetch(`https://api.github.com/search/repositories?q=${query}`, authHeader)
+    .then(response => checkResponse(response))
+      .then(data => cleanRepoData(data))
+}
