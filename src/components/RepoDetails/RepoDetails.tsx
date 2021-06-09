@@ -1,6 +1,6 @@
 import React from 'react'
 import { Repo } from '../App/App'
-
+import { useUrl } from './hooks'
 
 interface Props {
   ownerName: string
@@ -8,11 +8,10 @@ interface Props {
   allResults: Repo[]
 }
 
-export const RepoDetails: React.FC<Props> = ({ ownerName, name, allResults}) => {
-
+export const RepoDetails: React.FC<Props> = ({ ownerName, name, allResults }) => {
+  useUrl(ownerName, name, allResults)
   return (
     <>
     </>
   )
-
 }
