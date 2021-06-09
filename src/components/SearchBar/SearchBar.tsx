@@ -40,7 +40,7 @@ export const SearchBar: React.FC<Props> =
     <div>
       <select
         value={filters.language}
-        onChange={e => setFilters({ language: e.target.value })}
+        onChange={e => setFilters({ ...filters, language: e.target.value })}
       >
         <option value=''>Any</option>
         {renderLangOptions()}
