@@ -14,7 +14,6 @@ export interface Repo {
   [key: string]: any
   id: number,
   name: string,
-  fullName: string,
   ownerName: string,
   ownerAviUrl: string,
   ownerProfUrl: string,
@@ -23,16 +22,14 @@ export interface Repo {
   repoUrl: string,
   repoDescrip: string,
   isFork: boolean,
-  createdAt: Date,
-  updatedAt: Date,
-  pushedAt: Date,
+  createdAt: string,
+  updatedAt: string,
   size: number,
   watchersCount: number,
   language: string,
   forksCount: number,
   openIssuesCount: number,
   score: number,
-  openIssues: number,
   hasIssues: boolean,
   hasProjects: boolean,
   hasPages: boolean,
@@ -58,6 +55,7 @@ export const App: React.FC = () => {
 
   return (
     <div className="App">
+      <h1 className='app-title'> GitHub Search </h1>
       <Route
         exact path='/'
         render={(): any =>
