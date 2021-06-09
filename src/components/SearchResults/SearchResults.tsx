@@ -18,8 +18,8 @@ export const SearchResults: React.FC<Props> = ({ allResults, filters }) => {
   }
 
   return (
-    <>
+    <div className='search-results'>
       {renderCards()}
-    </>
+    </div>
   )
 }
