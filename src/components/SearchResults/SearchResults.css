@@ -1,0 +1,6 @@
+.search-results {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  height: 89vh;
+  overflow-y: scroll;
+}
