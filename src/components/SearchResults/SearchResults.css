@@ -1,0 +1,20 @@
+.search-results {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  height: 89vh;
+  overflow-y: scroll;
+}
+
+@media only screen and (max-width: 930px) {
+  .search-results {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    height: 83vh;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .search-results {
+    grid-template-columns: minmax(0, 1fr);
+    height: 80vh;
+  }
+}

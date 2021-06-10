@@ -1,0 +1,23 @@
+.repo-card {
+  display: flex;
+  background-color: #EAEFF9;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  flex-direction: column;
+  justify-self: center;
+  margin: 2%;
+  overflow: wrap;
+  padding: 1.5%;
+  width: 90%;
+  height: 76%;
+}
+
+.repo-card:hover {
+  border: 1px solid #75E6DA;
+  width: 92%;
+  height: 80%;
+}
+
+.repo-card-info {
+  display: flex;
+  justify-content: space-between;
+}

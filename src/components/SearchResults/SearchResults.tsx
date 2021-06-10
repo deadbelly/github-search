@@ -3,6 +3,8 @@ import { Repo, Filters } from '../App/App'
 import { RepoCard } from '../RepoCard/RepoCard'
 import { useFilters } from './hooks'
 
+import './SearchResults.css'
+
 interface Props {
   allResults: Repo[]
   filters: Filters

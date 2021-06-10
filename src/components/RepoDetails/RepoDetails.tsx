@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { Repo } from '../App/App'
 import { useUrl } from './hooks'
 
+import './RepoDetails.css'
+
 export interface Props {
   ownerName: string
   name: string
@@ -23,24 +25,24 @@ export const RepoDetails: React.FC<Props> = (props) => {
               <button>Back to Search</button>
             </Link>
             <h1>{selection.name}</h1>
-            <h2>{selection.repoDescrip}</h2>
+            <h2>Description: {selection.repoDescrip}</h2>
           </div>
           <div className='detail-info'>
             <div className='detail-info--column'>
-              <img src={selection.ownerAviUrl} alt='owner profile img'/>
-              <h3>Owner: {selection.ownerName}</h3>
-              <p>Type: {selection.ownerType}</p>
-              <a href={selection.ownerProfUrl}>Visit Owner Profile</a>
-            </div>
-            <div className='detail-info--column'>
               <h3>Language: {selection.language}</h3>
-              <h3>Score: {selection.score}</h3>
+              <h3>Stars: {selection.stars}</h3>
               <p>Created: {selection.createdAt}</p>
               <p>Last Updated: {selection.updatedAt}</p>
               <p>Watchers: {selection.watchersCount}</p>
               <p>Forks: {selection.forksCount}</p>
               <p>Open Issues: {selection.openIssuesCount}</p>
               <a href={selection.repoUrl}>View on GitHub</a>
+            </div>
+            <div className='detail-info--column'>
+              <img src={selection.ownerAviUrl} alt='owner profile img'/>
+              <h3>Owner: {selection.ownerName}</h3>
+              <p>Type: {selection.ownerType}</p>
+              <a href={selection.ownerProfUrl}>Visit Owner Profile</a>
             </div>
           </div>
           <div className='detail-bottom'>
