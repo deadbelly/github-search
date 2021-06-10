@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Repo, Filters } from '../App/App'
 import { getRepos } from '../../apiCalls'
 
+import './SearchBar.css'
+
 interface Props {
   setAllResults: React.Dispatch<React.SetStateAction<Repo[]>>
   setFilters: React.Dispatch<React.SetStateAction<Filters>>
@@ -37,7 +39,8 @@ export const SearchBar: React.FC<Props> =
   }
 
   return (
-    <div>
+    <div className='search-bar'>
+      <label>language:</label>
       <select
         value={filters.language}
         onChange={e => setFilters({ ...filters, language: e.target.value })}
@@ -45,6 +48,7 @@ export const SearchBar: React.FC<Props> =
         <option value=''>Any</option>
         {renderLangOptions()}
       </select>
+      <label>sort:</label>
       <select
         value={sort}
         onChange={e => setSort(e.target.value)}

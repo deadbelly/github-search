@@ -25,3 +25,13 @@ h2 {
 h3 {
   font-size: 2vmin;
 }
+
+button {
+  background: #0C2D48;
+  border: none;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+}

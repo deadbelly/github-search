@@ -25,7 +25,7 @@ export const RepoDetails: React.FC<Props> = (props) => {
               <button>Back to Search</button>
             </Link>
             <h1>{selection.name}</h1>
-            <h2>{selection.repoDescrip}</h2>
+            <h2>Description: {selection.repoDescrip}</h2>
           </div>
           <div className='detail-info'>
             <div className='detail-info--column'>
