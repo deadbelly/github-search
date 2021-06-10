@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-self: center;
   margin: 2%;
+  max-height: 150px;
   overflow: wrap;
   padding: 1.5%;
   width: 90%;
