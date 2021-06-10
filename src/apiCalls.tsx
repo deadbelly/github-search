@@ -1,6 +1,7 @@
 import { Repo } from './components/App/App'
 import { cleanRepoData } from './dataCleaning'
 
+
 const authHeader = {
   headers: { authorization: `token ${process.env.REACT_APP_GH_KEY}` }
 }

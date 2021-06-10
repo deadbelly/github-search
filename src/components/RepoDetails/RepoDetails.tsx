@@ -18,12 +18,12 @@ export const RepoDetails: React.FC<Props> = (props) => {
 
   return (
     <div className='details'>
+    <Link to='/' >
+      <button>Back to Search</button>
+    </Link>
       {selection &&
         <>
           <div className='detail-top'>
-            <Link to='/' >
-              <button>Back to Search</button>
-            </Link>
             <h1>{selection.name}</h1>
             <h2>Description: {selection.repoDescrip}</h2>
           </div>
