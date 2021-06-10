@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Repo } from '../App/App'
 import { Props } from './RepoDetails'
 import { getSingleRepo } from '../../apiCalls'
+import { errToast } from '../../errorHandling'
 
 const findMatch = (props: Props): Repo | undefined => {
   const { ownerName, name, allResults } = props
@@ -17,6 +18,7 @@ export const useUrl =
     } else {
       getSingleRepo(props.ownerName, props.name)
         .then(selection => setSelection(selection))
+          .catch(() => errToast())
     }
   })
 }

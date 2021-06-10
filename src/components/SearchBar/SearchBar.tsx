@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Repo, Filters } from '../App/App'
 import { getRepos } from '../../apiCalls'
+import { errToast } from '../../errorHandling'
 
 import './SearchBar.css'
 
@@ -24,6 +25,7 @@ export const SearchBar: React.FC<Props> =
           setAllResults(results)
         }
       })
+        .catch(() => errToast())
   }
 
   const renderLangOptions = (): JSX.Element[] | void => {
