@@ -18,5 +18,5 @@ export const useFilters = (
       }
     }
     setFilteredResults(filteredResults)
-  }, [allResults, filters])
+  }, [allResults, filters, setFilteredResults])
 }
