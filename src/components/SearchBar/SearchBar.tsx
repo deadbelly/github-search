@@ -19,7 +19,11 @@ export const SearchBar: React.FC<Props> =
 
   const fetchResults = (query: string): void => {
     getRepos(query, sort)
-      .then((results: any) => setAllResults(results))
+      .then((results: any) => {
+        if(Array.isArray(results)) {
+          setAllResults(results)
+        }
+      })
   }
 
   const renderLangOptions = (): JSX.Element[] | void => {
