@@ -19,7 +19,7 @@ export const cleanRepoData = (repo: any): Repo => {
     language: repo.language,
     forksCount: repo.forks_count,
     openIssuesCount: repo.open_issues_count,
-    score: repo.score,
+    stars: repo.stargazers_count,
     hasIssues: repo.has_issues,
     hasProjects: repo.has_projects,
     hasPages: repo.has_pages,

@@ -29,7 +29,7 @@ export interface Repo {
   language: string,
   forksCount: number,
   openIssuesCount: number,
-  score: number,
+  stars: number,
   hasIssues: boolean,
   hasProjects: boolean,
   hasPages: boolean,
