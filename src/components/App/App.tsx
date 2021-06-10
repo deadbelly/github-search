@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch, Link } from 'react-router-dom'
 import { RouteComponentProps } from 'react-router'
 import { ToastContainer } from 'react-toastify'
 
@@ -56,33 +56,47 @@ export const App: React.FC = () => {
   return (
     <div className="App">
       <h1 className='app-title'> GitHub Search </h1>
-      <Route
-        exact path='/'
-        render={(): any =>
-          <>
-            <SearchBar
-              setAllResults={setAllResults}
-              setFilters={setFilters}
-              filters={filters}
+      <Switch>
+        <Route
+          exact path='/'
+          render={(): any =>
+            <>
+              <SearchBar
+                setAllResults={setAllResults}
+                setFilters={setFilters}
+                filters={filters}
+                allResults={allResults}
+              />
+              <SearchResults
+                allResults={allResults}
+                filters={filters}
+              />
+          </>
+          }
+        />
+        <Route
+          exact path='/details/:ownerName/:name'
+          render={({ match }: RouteComponentProps<Match>) =>
+            <RepoDetails
+              ownerName={match.params.ownerName}
+              name={match.params.name}
               allResults={allResults}
             />
-            <SearchResults
-              allResults={allResults}
-              filters={filters}
-            />
-        </>
-        }
-      />
-      <Route
-        exact path='/details/:ownerName/:name'
-        render={({ match }: RouteComponentProps<Match>) =>
-          <RepoDetails
-            ownerName={match.params.ownerName}
-            name={match.params.name}
-            allResults={allResults}
-          />
-        }
-      />
+          }
+        />
+        <Route
+          render={() => {
+            return (
+              <>
+                <Link to='/' >
+                  <button>Back to Search</button>
+                </Link>
+                <h1> PAGE NOT FOUND! </h1>
+              </>
+            )
+          }}
+        />
+      </Switch>
       <ToastContainer limit={1} />
     </div>
   )
