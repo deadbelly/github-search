@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Route } from 'react-router-dom'
 import { RouteComponentProps } from 'react-router'
+import { ToastContainer } from 'react-toastify'
 
-//components
+
 import { RepoDetails } from '../RepoDetails/RepoDetails'
 import { SearchBar } from '../SearchBar/SearchBar'
 import { SearchResults } from '../SearchResults/SearchResults'
 
-//styles
 import './App.css'
 
 export interface Repo {
@@ -83,6 +83,7 @@ export const App: React.FC = () => {
           />
         }
       />
+      <ToastContainer limit={1} />
     </div>
   )
 }
